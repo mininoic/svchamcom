@@ -1,0 +1,151 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Chấm cơm Admin</a>
+    </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu message-dropdown">
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Tuấn Chuối</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Hôm qua, lúc 4:32 chiều</p>
+                                <p>Cập nhật trạng thái nhà ăn...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Trung Nguyễn</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Hôm nay, lúc 5:32 chiều</p>
+                                <p>Thay đổi trạng thái các món chính...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Sam Sam</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Sáng nay, lúc 9:32</p>
+                                <p>Canh quá chua và quá mặn...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-footer">
+                    <a href="#"> Đọc tất cả các tin nhắn</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu alert-dropdown">
+                <li>
+                    <a href="#">Thông báo <span class="label label-default"> Mức độ</span></a>
+                </li>
+                <li>
+                    <a href="#">Thông báo <span class="label label-primary"> Mức độ</span></a>
+                </li>
+                <li>
+                    <a href="#">Thông báo <span class="label label-success"> Mức độ</span></a>
+                </li>
+                <li>
+                    <a href="#">Thông báo <span class="label label-info"> Mức độ</span></a>
+                </li>
+                <li>
+                    <a href="#">Thông báo <span class="label label-warning"> Mức độ</span></a>
+                </li>
+                <li>
+                    <a href="#">Thông báo <span class="label label-danger"> Mức độ</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#"> Xem tất cả</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Tuấn Chuối <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-user"></i> Hồ sơ cá nhân</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Tin nhắn</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-gear"></i> Cài đặt</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li class="<?php if($this->controller == 'index' && $this->action == 'index') echo 'active' ?>">
+                <a href="/admin/index/index"><i class="fa fa-fw fa-dashboard"></i> Bảng điều khiển</a>
+            </li>
+            <li>
+                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Biểu đồ</a>
+            </li>
+            <li>
+                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Báo cáo các xuất ăn</a>
+            </li>
+            <li class="<?php if($this->controller == 'dish' && $this->action == 'create') echo 'active' ?>">
+                <a href="/admin/dish/create"><i class="fa fa-fw fa-edit"></i> Thêm mới món ăn</a>
+            </li>
+            <li>
+                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Quản lý nội dung</a>
+            </li>
+            <li>
+                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Giao diện</a>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Khuyến mại <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="demo" class="collapse">
+                    <li>
+                        <a href="#">Chiết khấu theo thời gian</a>
+                    </li>
+                    <li>
+                        <a href="#">Chiết khấu theo từng món</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Thông tin hệ thống</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>

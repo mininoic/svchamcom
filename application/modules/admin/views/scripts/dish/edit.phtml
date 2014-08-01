@@ -1,0 +1,330 @@
+<?php if($this->dish) $dish = $this->dish;?>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Thêm mới món ăn
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="index.html">Trang quản lý</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-edit"></i> Chỉnh sửa
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Tải ảnh đại diện...</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="fileupload_avatar" type="file" name="files[]" multiple>
+                    </span>
+                <br>
+                <br>
+                <!-- The global progress bar -->
+                <div id="progress_avatar" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <!-- The container for the uploaded files -->
+                <div id="files_avatar" class="files"></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Tải ảnh cover...</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="fileupload_cover" type="file" name="files[]" multiple>
+                    </span>
+                <br>
+                <br>
+                <!-- The global progress bar -->
+                <div id="progress_cover" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <!-- The container for the uploaded files -->
+                <div id="files_cover" class="files"></div>
+            </div>
+        </div>
+    </div>
+    <form role="form" method="post" action="">
+        <input type="hidden" id="avatar" name="avatar" value="<?php if(isset($dish['avatar'])) echo $dish['avatar']; ?>"/>
+        <input type="hidden" id="cover" name="cover" value="<?php if(isset($dish['cover'])) echo $dish['cover']; ?>"/>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Danh mục món ăn</label>
+                    <select class="form-control" name="dish_category_id">
+                        <?php foreach($this->dish_categories as $category){?>
+                            <option value="<?php echo $category['id'];?>"><?php echo $category['name'];?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tên món ăn</label>
+                    <input class="form-control" placeholder="nhập tên món ăn" name="name" value="<?php if(isset($dish['name'])) echo $dish['name']; ?>">
+                    <!-- <p class="help-block">Nhập tên món ăn</p> -->
+                </div>
+
+                <!--            <div class="form-group">-->
+                <!--                <label>Ảnh đại diện</label>-->
+                <!--                <input type="file">-->
+                <!--            </div>-->
+                <!---->
+                <!--            <div class="form-group">-->
+                <!--                <label>Ảnh cover</label>-->
+                <!--                <input type="file">-->
+                <!--            </div>-->
+                <!-- The fileinput-button span is used to style the file input field as button -->
+
+                <div class="form-group">
+                    <label>Mô tả ngắn</label>
+                    <textarea class="form-control" rows="3" name="short_desc"><?php if(isset($dish['short_desc'])) echo $dish['short_desc']; ?></textarea>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1>Thông tin bổ sung</h1>
+                <fieldset abled>
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">VNĐ</span>
+                        <input name="price" type="text" class="form-control" placeholder="Giá trên một đơn vị tính" value="<?php if(isset($dish['price'])) echo $dish['price'] ?>">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">Gram</span>
+                        <input name="quality" type="text" class="form-control" placeholder="Khối lượng trên một đơn vị tính"  value="<?php if(isset($dish['quality'])) echo $dish['quality'] ?>">
+
+                    </div>
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">Kcal</span>
+                        <input name="nutrition_value" type="text" class="form-control" placeholder="Giá trị năng lượng"  value="<?php if(isset($dish['nutrition_value'])) echo $dish['nutrition_value'] ?>">
+
+                    </div>
+
+                    <div class="form-group input-group">
+                        <input name="tag" type="text" class="form-control" placeholder="Các từ khóa liên quan, cách nhau bằng dấu ;">
+                        <span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search"></i></button></span>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Bài viết chi tiết
+                </h1>
+                <textarea cols="80" id="long_desc" name="long_desc" rows="10"><?php if(isset($dish['long_desc'])) echo $dish['long_desc'] ?></textarea>
+                <script>
+                    CKEDITOR.replace( 'long_desc' );
+                </script>
+            </div>
+        </div>
+        <div class="row"><p>&nbsp;</p></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <button type="reset" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </form>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+<script>
+    /*jslint unparam: true, regexp: true */
+    /*global window, $ */
+    $(function () {
+        'use strict';
+        // Change this to the location of your server-side upload handler:
+        var url = window.location.hostname === 'blueimp.github.io' ?
+                '//jquery-file-upload.appspot.com/' : '/admin/dish/upload',
+            uploadButton = $('<button/>')
+                .addClass('btn btn-primary')
+                .prop('disabled', true)
+                .text('Processing...')
+                .on('click', function () {
+                    var $this = $(this),
+                        data = $this.data();
+                    $this
+                        .off('click')
+                        .text('Abort')
+                        .on('click', function () {
+                            $this.remove();
+                            data.abort();
+                        });
+                    data.submit().always(function () {
+                        $this.remove();
+                    });
+                });
+
+        $('#fileupload_avatar').fileupload({
+            url: url,
+            dataType: 'json',
+            autoUpload: false,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            maxFileSize: 5000000, // 5 MB
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator.userAgent),
+            previewMaxWidth: 100,
+            previewMaxHeight: 100,
+            previewCrop: true
+        }).on('fileuploadadd', function (e, data) {
+                data.context = $('<div/>').appendTo('#files_avatar');
+                $.each(data.files, function (index, file) {
+                    var node = $('<p/>')
+                        .append($('<span/>').text(file.name));
+                    if (!index) {
+                        node
+                            .append('<br>')
+                            .append(uploadButton.clone(true).data(data));
+                    }
+                    node.appendTo(data.context);
+                });
+            }).on('fileuploadprocessalways', function (e, data) {
+                var index = data.index,
+                    file = data.files[index],
+                    node = $(data.context.children()[index]);
+                if (file.preview) {
+                    node
+                        .prepend('<br>')
+                        .prepend(file.preview);
+                }
+                if (file.error) {
+                    node
+                        .append('<br>')
+                        .append($('<span class="text-danger"/>').text(file.error));
+                }
+                if (index + 1 === data.files.length) {
+                    data.context.find('button')
+                        .text('Upload')
+                        .prop('disabled', !!data.files.error);
+                }
+            }).on('fileuploadprogressall', function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress_avatar .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }).on('fileuploaddone', function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    if (file.url) {
+                        var link = $('<a>')
+                            .attr('target', '_blank')
+                            .prop('href', file.url);
+                        $(data.context.children()[index])
+                            .wrap(link);
+
+                        //add link to input avatar
+                        $('#avatar').val(file.url);
+
+                    } else if (file.error) {
+                        var error = $('<span class="text-danger"/>').text(file.error);
+                        $(data.context.children()[index])
+                            .append('<br>')
+                            .append(error);
+                    }
+                });
+            }).on('fileuploadfail', function (e, data) {
+                $.each(data.files, function (index, file) {
+                    var error = $('<span class="text-danger"/>').text('File upload failed.');
+                    $(data.context.children()[index])
+                        .append('<br>')
+                        .append(error);
+                });
+            }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+        $('#fileupload_cover').fileupload({
+            url: url,
+            dataType: 'json',
+            autoUpload: false,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            maxFileSize: 5000000, // 5 MB
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator.userAgent),
+            previewMaxWidth: 100,
+            previewMaxHeight: 100,
+            previewCrop: true
+        }).on('fileuploadadd', function (e, data) {
+                data.context = $('<div/>').appendTo('#files_cover');
+                $.each(data.files, function (index, file) {
+                    var node = $('<p/>')
+                        .append($('<span/>').text(file.name));
+                    if (!index) {
+                        node
+                            .append('<br>')
+                            .append(uploadButton.clone(true).data(data));
+                    }
+                    node.appendTo(data.context);
+                });
+            }).on('fileuploadprocessalways', function (e, data) {
+                var index = data.index,
+                    file = data.files[index],
+                    node = $(data.context.children()[index]);
+                if (file.preview) {
+                    node
+                        .prepend('<br>')
+                        .prepend(file.preview);
+                }
+                if (file.error) {
+                    node
+                        .append('<br>')
+                        .append($('<span class="text-danger"/>').text(file.error));
+                }
+                if (index + 1 === data.files.length) {
+                    data.context.find('button')
+                        .text('Upload')
+                        .prop('disabled', !!data.files.error);
+                }
+            }).on('fileuploadprogressall', function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress_cover .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }).on('fileuploaddone', function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    if (file.url) {
+                        var link = $('<a>')
+                            .attr('target', '_blank')
+                            .prop('href', file.url);
+                        $(data.context.children()[index])
+                            .wrap(link);
+
+                        //add link to input cover
+                        $('#cover').val(file.url);
+                    } else if (file.error) {
+                        var error = $('<span class="text-danger"/>').text(file.error);
+                        $(data.context.children()[index])
+                            .append('<br>')
+                            .append(error);
+                    }
+                });
+            }).on('fileuploadfail', function (e, data) {
+                $.each(data.files, function (index, file) {
+                    var error = $('<span class="text-danger"/>').text('File upload failed.');
+                    $(data.context.children()[index])
+                        .append('<br>')
+                        .append(error);
+                });
+            }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+</script>

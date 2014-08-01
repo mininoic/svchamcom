@@ -1,0 +1,28 @@
+<div class="header-top tr">
+  	<?php 
+		Zend_Loader::loadClass('AuthUserModel');
+    	$auth = new AuthUserModel();
+    	if($auth->hasIdentity()) {
+    		$auth=$auth->getIdentity();
+    		$username=$auth['username'];
+    	}
+	?>
+    <p>Xin chào, <strong><?php echo $username;?></strong> 
+    	| <a href="/">Đăng xuất</a>
+    </p>
+</div>
+<div class="header-middle">
+    <!-- Start Logo --> 
+    <div class="header_title">Quản trị của thành viên</div>
+    <!-- End Logo --> 
+    <br class="cl" />
+</div>
+
+<div class="header-bottom"> 
+    <!-- Start Breadcrumbs -->
+    <ul id="breadcrumbs">
+      	<li><a href="/user">Home</a> &raquo;</li>
+      	<?php if($this->action) echo "<li><a href='".$this->baseUrl('admin/'.$this->controller.'/'.$this->action)."'>".ucwords($this->action)."</a></li>"; ?>
+    </ul>
+    <!-- End Breadcrumbs --> 
+</div>

@@ -1,0 +1,12 @@
+<?php 
+$authUser=new AuthUserModel();
+?>
+
+<?php if(!$authUser->hasIdentity()){?>
+	<a href="/index/register">Đăng ký</a> | <a href="/index/login">Đăng nhập</a>
+<?php }?>
+<?php if($authUser->hasIdentity()){
+	$auth=$authUser->getIdentity();		
+?>
+	Xin chào <a href="/user"><?php echo $auth['username']?></a> | <a href="/index/logout">Đăng xuất</a>
+<?php }?>

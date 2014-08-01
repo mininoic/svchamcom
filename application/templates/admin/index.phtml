@@ -1,0 +1,25 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+   	<?php echo $this->partial('/components/head.phtml'); ?>
+    <?php echo $this->headTitle() ?>
+   	<?php echo $this->headMeta() ?>
+   	<?php echo $this->headLink() ?>
+   	<?php echo $this->headScript() ?>
+</head>
+<body>
+    <div id="wrapper">
+        <?php require 'components/header.phtml'; ?>
+        <div id="page-wrapper">
+            <?php echo $this->layout()->content ?>
+        </div>
+    </div>
+	<div id="footer" style="text-align: center">
+        Copyright ©2014 <a href="http://bkgamemaker.com">BKGM Studio</a>.
+	</div>
+    <!-- Morris Charts JavaScript -->
+    <script src="/js/plugins/morris/raphael.min.js"></script>
+    <script src="/js/plugins/morris/morris.min.js"></script>
+    <script src="/js/plugins/morris/morris-data.js"></script>
+</body>
+</html>

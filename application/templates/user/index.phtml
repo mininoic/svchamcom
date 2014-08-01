@@ -1,0 +1,29 @@
+<!-- template by hieubd  -->
+<?php echo $this->doctype() ?>
+<html>
+<head>
+   	<?php echo $this->partial('/components/head.phtml'); ?>
+    <?php echo $this->headTitle() ?>
+   	<?php echo $this->headMeta() ?>
+   	<?php echo $this->headLink() ?>
+   	<?php echo $this->headScript() ?>
+</head>
+<body>
+	<div id="header">
+		<?php require 'components/header.phtml'; ?>
+	</div>
+	<div id="page">
+		<div id="aside">
+			<?php require 'components/aside.phtml'; ?>
+		</div>
+		<div id="page-content"> 
+			<?php echo $this->layout()->content ?>
+			<br class="cl" />
+		</div>
+		<br class="cl" />
+	</div>
+	<div id="footer"> 
+		Copyright ©2011 <a href="http://sunnet.vn">SUNNET ITC Solution JSC</a>.
+	</div>
+</body>
+</html>
